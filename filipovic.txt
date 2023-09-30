@@ -1,0 +1,46 @@
+SHOP 
+
+CREATE TABLE shop (
+    ID_shop INT AUTO_INCREMENT PRIMARY KEY,
+    ime VARCHAR(50),
+    adresa VARCHAR(50),
+    kontakt INT
+);
+
+
+CREATE TABLE users (
+    ID_user INT AUTO_INCREMENT PRIMARY KEY,
+    ime VARCHAR(50),
+    prezime VARCHAR(50),
+    email VARCHAR(50),
+    password VARCHAR(50)
+);
+
+
+CREATE TABLE game (
+    ID_game INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    category_id INT,
+    ime VARCHAR(50),
+    opis VARCHAR(200),
+    cijena INT,
+    FOREIGN KEY (user_id) REFERENCES users (ID_user) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES category (ID_category) ON DELETE CASCADE
+);
+
+
+CREATE TABLE cart (
+    ID_cart INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    game_id INT,
+    FOREIGN KEY (user_id) REFERENCES users (ID_user) ON DELETE CASCADE,
+    FOREIGN KEY (game_id) REFERENCES game (ID_game) ON DELETE CASCADE
+);
+
+
+CREATE TABLE category (
+    ID_category INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    ime VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES users (ID_user) ON DELETE CASCADE
+);

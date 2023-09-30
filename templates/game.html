@@ -260,7 +260,7 @@
                     %}
                   </td>
                   <td class="text-center">
-                    <form action="{{ url_for('izbrisi_igru', ID_game=game.ID_game) }}" >
+                    <form action="{{ url_for('izbrisi_igru', ID_game=game.ID_game) }}" method="POST">
                     <button class="btn btn-sm btn-outline-danger">Izbrisi</button>
                 </form>
                   </td>

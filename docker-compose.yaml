@@ -22,10 +22,10 @@ services:
     image: mysql
     container_name: mysql
     environment:
-      - MYSQL_DATABASE=studio
-      - MYSQL_USER=studio
-      - MYSQL_PASSWORD=studio123
-      - MYSQL_ROOT_PASSWORD=studio123
+      - MYSQL_DATABASE=gameshop
+      - MYSQL_USER=gameshop
+      - MYSQL_PASSWORD=gameshop123
+      - MYSQL_ROOT_PASSWORD=gameshop123
     volumes:
       - mysql:/var/lib/mysql
     networks:
